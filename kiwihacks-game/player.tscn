@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bb0d7o8c5vogn"]
+
+[ext_resource type="Script" uid="uid://c54a6vc4nnncp" path="res://character_body_2d.gd" id="1_f50pn"]
+[ext_resource type="Texture2D" uid="uid://c5m5d7y46plyw" path="res://icon.svg" id="2_ij6vw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghijl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ij6vw")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ij6vw")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ij6vw")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ij6vw")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
+size = Vector2(130, 128)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1069507652]
+script = ExtResource("1_f50pn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2069624571]
+sprite_frames = SubResource("SpriteFrames_ghijl")
+animation = &"back"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1834886280]
+shape = SubResource("RectangleShape2D_ij6vw")
