@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://t57hp0kprjor"]
+[gd_scene format=3 uid="uid://b2wdboj7v520w"]
 
 [ext_resource type="FontFile" uid="uid://ippfmw4qpmsj" path="res://VCR_OSD_MONO_1.001.ttf" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bskif5hoa8pn2" path="res://control.gd" id="1_62e2m"]
@@ -47,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -550.0
-offset_top = -191.0
-offset_right = 558.0
-offset_bottom = 269.0
+offset_left = -489.0
+offset_top = -240.0
+offset_right = 497.0
+offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_0fbet")
@@ -62,12 +62,13 @@ Complete them to remove the obstacles standing between you and Earth.
 
 Your mission is simple:
 Complete the challenges. Collect the necessary resources. Get home
+Space to attack, arrow keys or wasd to move.
 
 Good luck... [SPACE FOR NEXT]"
 scroll_active = false
 
 [node name="Timer" type="Timer" parent="." unique_id=1871751708]
-wait_time = 0.009999999999999998
+wait_time = 0.00999999999999999
 one_shot = true
 autostart = true
 

@@ -2,7 +2,7 @@ extends Node2D
 ## Space room director for basic_scene: zombie-apocalypse waves from all
 ## directions. Stars drop 3-5 iron, rocks 1-2. Escape at 50 iron.
 
-@export var iron_goal := 50
+@export var iron_goal := 15
 @export var spawn_ring := 650.0
 @export var breather := 3.0
 @export var nebula_scale := 4.0
@@ -34,6 +34,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if _won:
+		get_tree().change_scene_to_file("res://hub world.tscn")
+		Global.space = true
 		return
 	_clamp_ship()
 	var left := get_tree().get_nodes_in_group("foe").size()

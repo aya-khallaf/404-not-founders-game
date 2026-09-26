@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dur20qent2853" path="res://MasterSimple.png" id="1_37g4p"]
 [ext_resource type="PackedScene" uid="uid://bb0d7o8c5vogn" path="res://player.tscn" id="2_yg2w3"]
 [ext_resource type="PackedScene" uid="uid://qipmclv2ymqu" path="res://collectable.tscn" id="3_wl7ka"]
-[ext_resource type="PackedScene" uid="uid://b6cxgt6g8btar" path="res://enemy.tscn" id="4_lx1al"]
-[ext_resource type="Script" path="res://space_room.gd" id="5_room"]
+[ext_resource type="Script" uid="uid://boq3rb38o53jb" path="res://space_room.gd" id="5_room"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
 texture = ExtResource("1_37g4p")
@@ -145,10 +144,10 @@ sources/1 = SubResource("TileSetAtlasSource_yg2w3")
 y_sort_enabled = true
 script = ExtResource("5_room")
 
-[node name="Sky" type="CanvasLayer" parent="."]
+[node name="Sky" type="CanvasLayer" parent="." unique_id=1841967005]
 layer = -10
 
-[node name="SkyRect" type="ColorRect" parent="Sky"]
+[node name="SkyRect" type="ColorRect" parent="Sky" unique_id=1570450834]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -180,14 +179,6 @@ collectable_type = "red tree 1"
 [node name="StaticBody2D2" parent="." unique_id=1034770497 instance=ExtResource("3_wl7ka")]
 position = Vector2(287, -138)
 collectable_type = "rock"
-
-
-
-
-
-
-
-
 
 [node name="Timer" type="Timer" parent="." unique_id=222353821]
 wait_time = 0.1

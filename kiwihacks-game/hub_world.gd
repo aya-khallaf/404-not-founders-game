@@ -9,3 +9,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func blue(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://play.tscn")
+
+
+func space(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://basic_scene.tscn")
+
+
+func red(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://red.tscn")

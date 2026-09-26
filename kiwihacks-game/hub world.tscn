@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dq3akoim8ixid"]
+[gd_scene format=3 uid="uid://buk2dc21h2i7p"]
 
 [ext_resource type="Script" uid="uid://cnd32idjv255k" path="res://hub_world.gd" id="1_du6s0"]
 [ext_resource type="Texture2D" uid="uid://guqwth748yi5" path="res://CosmicLilac_Tiles.png" id="1_l20sj"]
@@ -135,7 +135,10 @@ size = Vector2(14, 314)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iixe1"]
 size = Vector2(255, 20)
 
-[node name="Basic scene" type="Node2D" unique_id=608034055]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rxwl"]
+size = Vector2(31, 42)
+
+[node name="Basic scene3" type="Node2D" unique_id=608034055]
 y_sort_enabled = true
 script = ExtResource("1_du6s0")
 
@@ -206,7 +209,25 @@ shape = SubResource("RectangleShape2D_iixe1")
 [node name="Area2D" type="Area2D" parent="." unique_id=1636707054]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=228645155]
+position = Vector2(89.5, 240)
+shape = SubResource("RectangleShape2D_6rxwl")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1211559600]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=245956381]
+position = Vector2(170, 291)
+shape = SubResource("RectangleShape2D_6rxwl")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=2058528782]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1598292761]
+position = Vector2(251, 257)
+shape = SubResource("RectangleShape2D_6rxwl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1030436949]
 stream = ExtResource("9_6rxwl")
 autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="." method="blue"]
+[connection signal="body_entered" from="Area2D2" to="." method="space"]
+[connection signal="body_entered" from="Area2D3" to="." method="red"]

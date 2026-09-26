@@ -109,8 +109,8 @@ func _win() -> void:
 	_message_label.visible = true
 	_win_sound.play()
 	await get_tree().create_timer(1.2).timeout
-	if win_scene_path != "" and ResourceLoader.exists(win_scene_path):
-		get_tree().change_scene_to_file(win_scene_path)
+	get_tree().change_scene_to_file("res://hub world.tscn")
+	Global.blue = true
 
 func _update_jumps_label() -> void:
 	_jumps_label.text = "JUMPS %02d/%02d" % [_jumps, target_jumps]

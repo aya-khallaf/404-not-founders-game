@@ -249,6 +249,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5hdr3"]
+radius = 40.012497
+
 [node name="Basic scene" type="Node2D" unique_id=608034055]
 y_sort_enabled = true
 script = ExtResource("1_2lpwq")
@@ -755,3 +758,11 @@ texture = ExtResource("8_073wb")
 position = Vector2(347, 194)
 sprite_frames = SubResource("SpriteFrames_xw53k")
 animation = &"locked"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=156207910]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=939044037]
+position = Vector2(351, 205)
+shape = SubResource("CircleShape2D_5hdr3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
