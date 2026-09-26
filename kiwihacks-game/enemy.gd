@@ -32,4 +32,5 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_hitbox_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.scene_file_path == "res://player.tscn":
+		toucing_player = false
