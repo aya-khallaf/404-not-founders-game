@@ -24,7 +24,10 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 			
 		if touching_player and not cooldown:
-			Global.player_node.health -= 5
+			if Global.player_node.has_method("take_damage"):
+				Global.player_node.take_damage(5)
+			else:
+				Global.player_node.health -= 5
 			cooldown = true
 			$Timer.start()
 

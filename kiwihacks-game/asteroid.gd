@@ -79,7 +79,10 @@ func _drop_iron(count: int) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body == Global.player_node and _cooldown <= 0.0:
 		_cooldown = 1.0
-		body.set("health", maxi(0, int(body.get("health")) - touch_damage))
+		if body.has_method("take_damage"):
+			body.take_damage(touch_damage)
+		else:
+			body.set("health", maxi(0, int(body.get("health")) - touch_damage))
 
 func _flash() -> void:
 	var tween := create_tween()
