@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://t57hp0kprjor"]
+[gd_scene format=3 uid="uid://dny4yax0hvm3l"]
 
-[ext_resource type="FontFile" uid="uid://ippfmw4qpmsj" path="res://VCR_OSD_MONO_1.001.ttf" id="1_0fbet"]
-[ext_resource type="Script" uid="uid://bskif5hoa8pn2" path="res://control.gd" id="1_62e2m"]
-[ext_resource type="AudioStream" uid="uid://dc73h1imx7p6i" path="res://typing-sound-effect-no-copyright_KLzBGZ07.mp3" id="3_qtu10"]
+[ext_resource type="Script" uid="uid://bskif5hoa8pn2" path="res://control.gd" id="1_6l8y2"]
+[ext_resource type="FontFile" uid="uid://ippfmw4qpmsj" path="res://VCR_OSD_MONO_1.001.ttf" id="2_6wmqk"]
+[ext_resource type="AudioStream" uid="uid://dc73h1imx7p6i" path="res://typing-sound-effect-no-copyright_KLzBGZ07.mp3" id="3_3clg3"]
 
 [node name="Control" type="Control" unique_id=1745831077]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_62e2m")
+script = ExtResource("1_6l8y2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1981917067]
 layout_mode = 1
@@ -27,15 +27,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -281.0
-offset_top = 30.0
-offset_right = 281.0
-offset_bottom = 97.0
+offset_left = -320.0
+offset_top = 38.0
+offset_right = 325.0
+offset_bottom = 105.0
 grow_horizontal = 2
-theme_override_fonts/normal_font = ExtResource("1_0fbet")
+theme_override_fonts/normal_font = ExtResource("2_6wmqk")
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "[color=red][SYSTEM FAILURE][/color]
+text = "[color=red][SYSTEM RESTORING][/color]
 
 "
 scroll_active = false
@@ -47,32 +47,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -550.0
-offset_top = -191.0
-offset_right = 558.0
-offset_bottom = 269.0
+offset_left = -588.0
+offset_top = -53.0
+offset_right = 610.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("1_0fbet")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_fonts/normal_font = ExtResource("2_6wmqk")
+theme_override_font_sizes/normal_font_size = 56
 bbcode_enabled = true
-text = "You are stranded. Your ship is damaged. Earth is out of reach and your only way home is through three mysterious portals...
-Each portal holds a challenge.
-Complete them to remove the obstacles standing between you and Earth. 
-
-Your mission is simple:
-Complete the challenges. Collect the necessary resources. Get home
-
-Good luck... [SPACE FOR NEXT]"
+text = "You successfully found a computer!
+[SPACE FOR NEXT]"
 scroll_active = false
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1871751708]
-wait_time = 0.009999999999999998
+wait_time = 0.00999999999999999
 one_shot = true
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=370826943]
-stream = ExtResource("3_qtu10")
+stream = ExtResource("3_3clg3")
 volume_db = 13.448
 autoplay = true
 
