@@ -7,8 +7,8 @@ class_name IronSlab
 @export var value := 1
 
 const ART_SCALE := 2.0
-# Measured alpha bbox of spritepaint 28.png on its 92x92 canvas.
-const ART_OFFSET := Vector2(12.5, 7.5)
+# Measured alpha bbox of spritepaint 28.png (x23,y26 21x25), at 2x.
+const ART_OFFSET := Vector2(25, 15)
 const HITBOX := Vector2(42, 50)
 
 var _taken := false

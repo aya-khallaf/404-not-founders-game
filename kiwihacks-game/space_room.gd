@@ -11,6 +11,7 @@ extends Node2D
 
 const RockScene := preload("res://asteroid.tscn")
 const StarScene := preload("res://star_enemy.tscn")
+const ThiefScene := preload("res://thief.tscn")
 const BgTexture := preload("res://spritepaint 50.png")
 
 var _wave := 0
@@ -75,6 +76,8 @@ func _start_wave(n: int) -> void:
 		_queue.append({"kind": "fast"})
 	for i in mini(n, 4):
 		_queue.append({"kind": "star"})
+	for i in mini(maxi(n - 1, 0), 3):
+		_queue.append({"kind": "thief"})
 	_queue.shuffle()
 	_spawn_cd = 0.0
 	_update_hud()
@@ -91,19 +94,30 @@ func _spawn_next() -> void:
 		var star := StarScene.instantiate() as StarEnemy
 		star.position = pos
 		add_child(star)
+	elif spec["kind"] == "thief":
+		var thief := ThiefScene.instantiate() as IronThief
+		thief.position = pos
+		add_child(thief)
 	else:
 		var rock := RockScene.instantiate() as SpaceRock
 		rock.position = pos
 		if spec["kind"] == "fast":
 			rock.hp = 1
-			rock.drift_speed = 320.0
+			rock.drift_speed = 320.0 * randf_range(0.85, 1.2)
 			rock.art_scale = 2.0
 		else:
 			rock.hp = 3
-			rock.drift_speed = 90.0
+			rock.drift_speed = 90.0 * randf_range(0.85, 1.2)
 			rock.art_scale = 3.0
 		add_child(rock)
 	_update_hud()
+
+func steal_iron(max_amount: int) -> int:
+	# Called by thieves: hands over carried iron, never below zero.
+	var taken := mini(maxi(_iron, 0), max_amount)
+	_iron -= taken
+	_update_hud()
+	return taken
 
 func _win() -> void:
 	_won = true
@@ -122,38 +136,36 @@ func _update_hud(left: int = -1) -> void:
 		_label.text = "WAVE %d - FOES %d - IRON %d/%d" % [_wave, left + _queue.size(), _iron, iron_goal]
 
 func _tile_background() -> void:
-	# One continuous backdrop, no physics: a soft nebula wash from the
-	# artist tile plus individual stars for depth, all in one container.
-	var backdrop := Node2D.new()
-	backdrop.name = "Backdrop"
-	backdrop.z_index = -90
-	add_child(backdrop)
+	# Infinite scrolling backdrop, no physics: a slow nebula wash plus a
+	# faster star layer, both mirrored so there are never edges or seams.
+	var bg := ParallaxBackground.new()
+	bg.name = "Backdrop"
+	add_child(bg)
 	var w := float(BgTexture.get_width()) * nebula_scale
 	var h := float(BgTexture.get_height()) * nebula_scale
 	if w > 0.0:
-		var x := roam_center.x - roam_half.x
-		while x < roam_center.x + roam_half.x:
-			var y := roam_center.y - roam_half.y
-			while y < roam_center.y + roam_half.y:
-				var tile := Sprite2D.new()
-				tile.texture = BgTexture
-				tile.scale = Vector2(nebula_scale, nebula_scale)
-				tile.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-				tile.centered = true
-				tile.position = Vector2(x + w * 0.5, y + h * 0.5)
-				backdrop.add_child(tile)
-				y += h
-			x += w
-	for i in 350:
+		var nebula := ParallaxLayer.new()
+		nebula.motion_scale = Vector2(0.25, 0.25)
+		nebula.motion_mirroring = Vector2(w, h)
+		bg.add_child(nebula)
+		var wash := Sprite2D.new()
+		wash.texture = BgTexture
+		wash.scale = Vector2(nebula_scale, nebula_scale)
+		wash.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		wash.centered = true
+		nebula.add_child(wash)
+	var stars := ParallaxLayer.new()
+	stars.motion_scale = Vector2(0.6, 0.6)
+	stars.motion_mirroring = Vector2(1024, 1024)
+	bg.add_child(stars)
+	for i in 140:
 		var dot := Polygon2D.new()
 		var s := randf_range(1.0, 3.0)
-		var p := Vector2(
-			randf_range(roam_center.x - roam_half.x, roam_center.x + roam_half.x),
-			randf_range(roam_center.y - roam_half.y, roam_center.y + roam_half.y))
+		var p := Vector2(randf_range(-512, 512), randf_range(-512, 512))
 		dot.polygon = PackedVector2Array([p, p + Vector2(s, 0), p + Vector2(s, s), p + Vector2(0, s)])
 		var b := randf_range(0.4, 1.0)
 		dot.color = Color(b, b, b * randf_range(0.9, 1.0), 1)
-		backdrop.add_child(dot)
+		stars.add_child(dot)
 
 func _start_audio() -> void:
 	_bgm = AudioStreamPlayer.new()
