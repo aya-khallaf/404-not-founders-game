@@ -1,11 +1,12 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$TileMap.scale = Vector2(2.5, 2.5)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var completeted = true
+	for child in get_children():
+		if child.scene_file_path == "res://enemy.tscn":
+			completeted = false
+	if completeted:
+		$AnimatedSprite2D.play("open")
