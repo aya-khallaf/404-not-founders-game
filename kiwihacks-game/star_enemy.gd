@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	var ship := Global.player_node as Node2D
 	if ship != null and is_instance_valid(ship):
 		var dir := ship.global_position - global_position
+		if dir.length() > 1500.0:
+			queue_free()
+			return
 		if dir.length() > 1.0:
 			position += dir.normalized() * speed * delta
 

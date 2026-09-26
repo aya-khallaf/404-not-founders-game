@@ -5,7 +5,9 @@ extends Node2D
 @export var iron_goal := 50
 @export var spawn_ring := 650.0
 @export var breather := 3.0
-@export var bg_scale := 2.0
+@export var nebula_scale := 4.0
+@export var roam_half := Vector2(1600, 1200)
+@export var roam_center := Vector2(300, -200)
 
 const RockScene := preload("res://asteroid.tscn")
 const StarScene := preload("res://star_enemy.tscn")
@@ -17,6 +19,7 @@ var _queue: Array = []
 var _spawn_cd := 0.0
 var _rest_cd := 0.0
 var _won := false
+var _last_count := -1
 var _label: Label
 var _bgm: AudioStreamPlayer
 var _victory: AudioStreamPlayer
@@ -31,16 +34,29 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _won:
 		return
+	_clamp_ship()
+	var left := get_tree().get_nodes_in_group("foe").size()
+	if left != _last_count:
+		_update_hud(left)
 	if not _queue.is_empty():
 		_spawn_cd -= delta
 		if _spawn_cd <= 0.0:
 			_spawn_cd = 0.4
 			_spawn_next()
 		return
-	if get_tree().get_nodes_in_group("foe").is_empty():
+	if left == 0:
 		_rest_cd -= delta
 		if _rest_cd <= 0.0:
+			_rest_cd = breather
 			_start_wave(_wave + 1)
+
+func _clamp_ship() -> void:
+	# Soft walls: the roam area matches the backdrop, no physics needed.
+	var ship := Global.player_node as Node2D
+	if ship == null or not is_instance_valid(ship):
+		return
+	ship.global_position.x = clampf(ship.global_position.x, roam_center.x - roam_half.x, roam_center.x + roam_half.x)
+	ship.global_position.y = clampf(ship.global_position.y, roam_center.y - roam_half.y, roam_center.y + roam_half.y)
 
 func add_iron(value: int) -> void:
 	if _won:
@@ -96,35 +112,48 @@ func _win() -> void:
 	await get_tree().create_timer(3.5).timeout
 	get_tree().reload_current_scene()
 
-func _update_hud() -> void:
-	var left := get_tree().get_nodes_in_group("foe").size()
+func _update_hud(left: int = -1) -> void:
+	if left < 0:
+		left = get_tree().get_nodes_in_group("foe").size()
+	_last_count = left
 	if _queue.is_empty() and left == 0 and _wave > 0:
 		_label.text = "WAVE %d CLEAR - IRON %d/%d" % [_wave, _iron, iron_goal]
 	else:
 		_label.text = "WAVE %d - FOES %d - IRON %d/%d" % [_wave, left + _queue.size(), _iron, iron_goal]
 
 func _tile_background() -> void:
-	var w := float(BgTexture.get_width()) * bg_scale
-	var h := float(BgTexture.get_height()) * bg_scale
-	if w <= 0.0:
-		return
-	var tiles := Node2D.new()
-	tiles.name = "StarTiles"
-	tiles.z_index = -90
-	add_child(tiles)
-	var x := 300.0 - 1600.0
-	while x < 300.0 + 1600.0:
-		var y := -200.0 - 1200.0
-		while y < -200.0 + 1200.0:
-			var tile := Sprite2D.new()
-			tile.texture = BgTexture
-			tile.scale = Vector2(bg_scale, bg_scale)
-			tile.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-			tile.centered = true
-			tile.position = Vector2(x + w * 0.5, y + h * 0.5)
-			tiles.add_child(tile)
-			y += h
-		x += w
+	# One continuous backdrop, no physics: a soft nebula wash from the
+	# artist tile plus individual stars for depth, all in one container.
+	var backdrop := Node2D.new()
+	backdrop.name = "Backdrop"
+	backdrop.z_index = -90
+	add_child(backdrop)
+	var w := float(BgTexture.get_width()) * nebula_scale
+	var h := float(BgTexture.get_height()) * nebula_scale
+	if w > 0.0:
+		var x := roam_center.x - roam_half.x
+		while x < roam_center.x + roam_half.x:
+			var y := roam_center.y - roam_half.y
+			while y < roam_center.y + roam_half.y:
+				var tile := Sprite2D.new()
+				tile.texture = BgTexture
+				tile.scale = Vector2(nebula_scale, nebula_scale)
+				tile.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+				tile.centered = true
+				tile.position = Vector2(x + w * 0.5, y + h * 0.5)
+				backdrop.add_child(tile)
+				y += h
+			x += w
+	for i in 350:
+		var dot := Polygon2D.new()
+		var s := randf_range(1.0, 3.0)
+		var p := Vector2(
+			randf_range(roam_center.x - roam_half.x, roam_center.x + roam_half.x),
+			randf_range(roam_center.y - roam_half.y, roam_center.y + roam_half.y))
+		dot.polygon = PackedVector2Array([p, p + Vector2(s, 0), p + Vector2(s, s), p + Vector2(0, s)])
+		var b := randf_range(0.4, 1.0)
+		dot.color = Color(b, b, b * randf_range(0.9, 1.0), 1)
+		backdrop.add_child(dot)
 
 func _start_audio() -> void:
 	_bgm = AudioStreamPlayer.new()

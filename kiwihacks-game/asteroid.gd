@@ -34,13 +34,27 @@ func _ready() -> void:
 	var content := Vector2(24, 21)
 	_collision.shape = _collision.shape.duplicate() as RectangleShape2D
 	_collision.shape.size = content * art_scale
-	_dir = Vector2.RIGHT.rotated(randf() * TAU)
+	# Drift toward the ship (with spread) so rocks come AT you from all
+	# directions instead of wandering into the void and stalling waves.
+	var ship := Global.player_node as Node2D
+	if ship != null and is_instance_valid(ship):
+		var to_ship := (ship.global_position - global_position).normalized()
+		_dir = to_ship.rotated(randf_range(-1.1, 1.1))
+		if _dir.length() < 0.5:
+			_dir = Vector2.RIGHT.rotated(randf() * TAU)
+	else:
+		_dir = Vector2.RIGHT.rotated(randf() * TAU)
 	_spin = randf_range(-1.2, 1.2)
 
 func _physics_process(delta: float) -> void:
 	_cooldown = maxf(0.0, _cooldown - delta)
 	position += _dir * drift_speed * delta
 	rotation += _spin * delta
+	# Cull escapees so the wave can always complete.
+	var ship := Global.player_node as Node2D
+	if ship != null and is_instance_valid(ship):
+		if global_position.distance_to(ship.global_position) > 1500.0:
+			queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Weapon"):
