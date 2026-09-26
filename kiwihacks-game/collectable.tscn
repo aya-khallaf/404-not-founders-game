@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://g2w3gyys7ai7" path="res://collectable.gd" id="1_4v1pg"]
 [ext_resource type="Texture2D" uid="uid://ptn6x8735737" path="res://spritepaint 14.png" id="2_te2od"]
 [ext_resource type="Texture2D" uid="uid://dfvko4qindaob" path="res://spritepaint 13.png" id="3_tp3h4"]
+[ext_resource type="Texture2D" uid="uid://bga13k1jqix3" path="res://spritepaint 10 (1).svg" id="4_te2od"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_63kyv"]
 animations = [{
@@ -21,19 +22,28 @@ animations = [{
 "loop": true,
 "name": &"red tree 2",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_te2od")
+}],
+"loop": true,
+"name": &"rock",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4v1pg"]
-radius = 18.0
+radius = 24.5153
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1740213851]
 script = ExtResource("1_4v1pg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1961988357]
+position = Vector2(15, -22)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_63kyv")
-animation = &"red tree 2"
+animation = &"rock"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=496979837]
-position = Vector2(-18, 26)
+position = Vector2(-4, 5)
 shape = SubResource("CircleShape2D_4v1pg")

@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://bb0d7o8c5vogn"]
 
 [ext_resource type="Script" uid="uid://c54a6vc4nnncp" path="res://character_body_2d.gd" id="1_f50pn"]
-[ext_resource type="Texture2D" uid="uid://cd2a23sw40dwi" path="res://spritepaint 4.png" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://bg8jlm1vr518b" path="res://spritepaint 3.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://wuh0gqn7pupx" path="res://spritepaint 17 (1).png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://c01kbe28kxfve" path="res://spritepaint 2 (2).png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://8urpwdtw38kf" path="res://spritepaint 3 (2).png" id="5_dw050"]
 [ext_resource type="Texture2D" uid="uid://bdmdsfka377wk" path="res://spritepaint 2 (1).png" id="6_b26j0"]
@@ -12,13 +11,18 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_sweqy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_hqtel")
+"texture": ExtResource("5_dw050")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2hs0m")
+}],
+"loop": true,
+"name": &"spaceship",
 "speed": 5.0
 }, {
 "frames": [{
@@ -48,8 +52,7 @@ script = ExtResource("1_f50pn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2069624571]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_ghijl")
-animation = &"walk"
-frame_progress = 0.81686753
+animation = &"spaceship"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1834886280]
 position = Vector2(0, 1)

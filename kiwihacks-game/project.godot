@@ -14,6 +14,10 @@ config/name="kiwihacks game"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://by65u614ivnt5"
+
 [input]
 
 up={

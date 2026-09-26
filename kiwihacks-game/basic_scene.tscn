@@ -143,6 +143,7 @@ sources/1 = SubResource("TileSetAtlasSource_yg2w3")
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." unique_id=580567407]
+z_index = -100
 tile_set = SubResource("TileSet_wl7ka")
 collision_animatable = true
 format = 2
@@ -150,10 +151,18 @@ layer_0/tile_data = PackedInt32Array(196603, 65537, 8, 196604, 65537, 8, 196605,
 
 [node name="CharacterBody2D" parent="." unique_id=1069507652 instance=ExtResource("2_yg2w3")]
 position = Vector2(171, -144)
+in_spaceship = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1162918565]
-zoom = Vector2(3, 3)
+zoom = Vector2(2.5, 2.5)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="StaticBody2D" parent="." unique_id=1740213851 instance=ExtResource("3_wl7ka")]
 position = Vector2(126, -217)
 collectable_type = "red tree 1"
+
+[node name="StaticBody2D2" parent="." unique_id=1034770497 instance=ExtResource("3_wl7ka")]
+position = Vector2(287, -138)
+collectable_type = "rock"
