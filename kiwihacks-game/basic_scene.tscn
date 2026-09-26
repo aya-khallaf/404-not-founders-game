@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bb0d7o8c5vogn" path="res://player.tscn" id="2_yg2w3"]
 [ext_resource type="PackedScene" uid="uid://qipmclv2ymqu" path="res://collectable.tscn" id="3_wl7ka"]
 [ext_resource type="PackedScene" uid="uid://b6cxgt6g8btar" path="res://enemy.tscn" id="4_lx1al"]
+[ext_resource type="Script" path="res://space_room.gd" id="5_room"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
 texture = ExtResource("1_37g4p")
@@ -142,6 +143,18 @@ sources/1 = SubResource("TileSetAtlasSource_yg2w3")
 
 [node name="Basic scene" type="Node2D" unique_id=608034055]
 y_sort_enabled = true
+script = ExtResource("5_room")
+
+[node name="Sky" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="SkyRect" type="ColorRect" parent="Sky"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.04, 0.08, 1)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=580567407]
 z_index = -100
@@ -152,6 +165,7 @@ layer_0/tile_data = PackedInt32Array(196603, 65537, 5, 196604, 65537, 5, 196605,
 
 [node name="CharacterBody2D" parent="." unique_id=1069507652 instance=ExtResource("2_yg2w3")]
 position = Vector2(171, -144)
+in_spaceship = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1162918565]
 zoom = Vector2(2.5, 2.5)

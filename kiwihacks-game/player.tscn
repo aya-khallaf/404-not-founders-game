@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8urpwdtw38kf" path="res://spritepaint 3 (2).png" id="5_dw050"]
 [ext_resource type="Texture2D" uid="uid://bdmdsfka377wk" path="res://spritepaint 2 (1).png" id="6_b26j0"]
 [ext_resource type="PackedScene" uid="uid://oetcc6vwrbcw" path="res://sword.tscn" id="7_1jxqw"]
+[ext_resource type="PackedScene" path="res://gun.tscn" id="8_gun"]
 [ext_resource type="Texture2D" uid="uid://cs3lcbms0sow3" path="res://spritepaint 3 (1).png" id="7_n7ghd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ghijl"]
@@ -67,6 +68,9 @@ offset_bottom = -48.0
 show_percentage = false
 
 [node name="Sword" parent="." unique_id=124301926 instance=ExtResource("7_1jxqw")]
+position = Vector2(0, -12)
+
+[node name="Gun" parent="." instance=ExtResource("8_gun")]
 position = Vector2(0, -12)
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
