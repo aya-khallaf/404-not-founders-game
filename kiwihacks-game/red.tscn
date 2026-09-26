@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" path="res://plant.tscn" id="5_q6epr"]
 [ext_resource type="Texture2D" uid="uid://ba3j52u3jq3tj" path="res://spritepaint 32.png" id="6_3t7kr"]
 [ext_resource type="PackedScene" uid="uid://b6cxgt6g8btar" path="res://enemy.tscn" id="7_i7aae"]
+[ext_resource type="Texture2D" uid="uid://cai166ljqs5hi" path="res://spritepaint 50.png" id="8_073wb"]
+[ext_resource type="Texture2D" uid="uid://dqekn8wywl36l" path="res://spritepaint 54.png" id="9_5hdr3"]
+[ext_resource type="Texture2D" uid="uid://6jwb5o2gqo5n" path="res://spritepaint 55.png" id="10_hlsyn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
 texture = ExtResource("1_xn7oe")
@@ -226,6 +229,25 @@ size = Vector2(113, 43.09375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3t7kr"]
 size = Vector2(35.125, 41.75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xw53k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5hdr3")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_hlsyn")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
 
 [node name="Basic scene" type="Node2D" unique_id=608034055]
 y_sort_enabled = true
@@ -720,3 +742,16 @@ animation = "fire sprite"
 [node name="Enemy17" parent="." unique_id=1707495926 instance=ExtResource("7_i7aae")]
 position = Vector2(136, 515)
 animation = "fire sprite"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=308253324]
+layer = -100
+
+[node name="Spritepaint50" type="Sprite2D" parent="CanvasLayer" unique_id=1985988377]
+position = Vector2(493.25, 421.49994)
+scale = Vector2(14.668479, 13.119567)
+texture = ExtResource("8_073wb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=968133728]
+position = Vector2(347, 194)
+sprite_frames = SubResource("SpriteFrames_xw53k")
+animation = &"locked"
