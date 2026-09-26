@@ -11,3 +11,7 @@ func _on_timer_timeout() -> void:
 		return
 	else:
 		$Timer.start()
+
+
+func _on_musictimer_timeout() -> void:
+	$AudioStreamPlayer2.playing = false

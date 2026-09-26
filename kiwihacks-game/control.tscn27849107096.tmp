@@ -48,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -556.0
-offset_top = -218.0
-offset_right = 552.0
-offset_bottom = 242.0
+offset_left = -550.0
+offset_top = -191.0
+offset_right = 558.0
+offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_0fbet")
@@ -67,25 +67,6 @@ Complete the challenges. Collect the necessary resources. Get home
 Good luck... [SPACE FOR NEXT]"
 scroll_active = false
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1250510564]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -555.0
-offset_top = 254.0
-offset_right = 259.0
-offset_bottom = 305.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("1_0fbet")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "Remember to press space to attack!"
-scroll_active = false
-
 [node name="Timer" type="Timer" parent="." unique_id=1871751708]
 wait_time = 0.009999999999999998
 one_shot = true
@@ -98,10 +79,9 @@ autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=2009804844]
 stream = ExtResource("4_ee4bf")
-autoplay = true
 
 [node name="Timer" type="Timer" parent="AudioStreamPlayer2" unique_id=3411504]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
