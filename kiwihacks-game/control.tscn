@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://t57hp0kprjor"]
 
 [ext_resource type="FontFile" uid="uid://ippfmw4qpmsj" path="res://VCR_OSD_MONO_1.001.ttf" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://bskif5hoa8pn2" path="res://control.gd" id="1_62e2m"]
 
 [node name="Control" type="Control" unique_id=1745831077]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_62e2m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1981917067]
 layout_mode = 1
@@ -21,19 +23,51 @@ color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1503358892]
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.0
+offset_top = 30.0
+offset_right = 248.0
+offset_bottom = 97.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_0fbet")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[color=red][SYSTEM ALERT][/color]
+
+"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=471137702]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -428.5
-offset_top = -135.5
-offset_right = 428.5
-offset_bottom = -25.0
+offset_left = -550.0
+offset_top = -191.0
+offset_right = 558.0
+offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_0fbet")
-theme_override_font_sizes/normal_font_size = 60
-text = "[SYSTEM ALERT]
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "You are stranded. Your ship is damaged. Earth is out of reach and your only way home is through three mysterious portals...
+Each portal holds a challenge.
+Complete them to remove the obstacles standing between you and Earth. 
 
-"
+Your mission is simple:
+Complete the challenges. Collect the necessary resources. Get home
+
+Good luck..."
+scroll_active = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1871751708]
+wait_time = 0.009999999999999998
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
