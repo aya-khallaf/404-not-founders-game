@@ -1,9 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c0c8tr718qrwt"]
 
 [ext_resource type="Script" path="res://play.gd" id="1"]
 [ext_resource type="PackedScene" path="res://doodle_player.tscn" id="2"]
-[ext_resource type="FontFile" path="res://VCR_OSD_MONO_1.001.ttf" id="3"]
-[ext_resource type="AudioStream" path="res://win.mp3" id="4"]
+[ext_resource type="FontFile" uid="uid://ippfmw4qpmsj" path="res://VCR_OSD_MONO_1.001.ttf" id="3"]
+[ext_resource type="AudioStream" uid="uid://botqqqo1c8qpv" path="res://win.mp3" id="4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
 bg_color = Color(0, 0, 0, 0.55)
@@ -23,13 +23,13 @@ border_color = Color(0.9, 0.9, 0.9, 0.85)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp_fill"]
 bg_color = Color(0.85, 0.25, 0.25, 1)
 
-[node name="Play" type="Node2D"]
+[node name="Play" type="Node2D" unique_id=1713636661]
 script = ExtResource("1")
 
-[node name="Sky" type="CanvasLayer" parent="."]
+[node name="Sky" type="CanvasLayer" parent="." unique_id=1506949480]
 layer = -10
 
-[node name="SkyRect" type="ColorRect" parent="Sky"]
+[node name="SkyRect" type="ColorRect" parent="Sky" unique_id=610361953]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -37,78 +37,83 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.55, 0.8, 0.92, 1)
 
-[node name="TrunkBackground" type="Node2D" parent="."]
+[node name="TrunkBackground" type="Node2D" parent="." unique_id=1028528881]
 z_index = -50
 
-[node name="Trunk" type="Polygon2D" parent="TrunkBackground"]
+[node name="Trunk" type="Polygon2D" parent="TrunkBackground" unique_id=119272518]
 color = Color(0.33, 0.22, 0.13, 1)
 polygon = PackedVector2Array(-110, 900, 110, 900, 110, -6000, -110, -6000)
 
-[node name="Knots" type="Node2D" parent="TrunkBackground"]
+[node name="Knots" type="Node2D" parent="TrunkBackground" unique_id=1708812190]
 
-[node name="Platforms" type="Node2D" parent="."]
+[node name="Platforms" type="Node2D" parent="." unique_id=236235259]
 
-[node name="Branches" type="Node2D" parent="."]
+[node name="Branches" type="Node2D" parent="." unique_id=1025515472]
 
-[node name="DoodlePlayer" parent="." instance=ExtResource("2")]
+[node name="DoodlePlayer" parent="." unique_id=1414603902 instance=ExtResource("2")]
 position = Vector2(0, 60)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2048395498]
 position = Vector2(0, -60)
 zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
-enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1554802798]
 
-[node name="HUDPanel" type="PanelContainer" parent="CanvasLayer"]
+[node name="HUDPanel" type="PanelContainer" parent="CanvasLayer" unique_id=523307711]
 offset_left = 12.0
 offset_top = 10.0
 offset_right = 300.0
 offset_bottom = 132.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="Margin" type="MarginContainer" parent="CanvasLayer/HUDPanel"]
+[node name="Margin" type="MarginContainer" parent="CanvasLayer/HUDPanel" unique_id=1915399199]
+layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 8
 
-[node name="Rows" type="VBoxContainer" parent="CanvasLayer/HUDPanel/Margin"]
+[node name="Rows" type="VBoxContainer" parent="CanvasLayer/HUDPanel/Margin" unique_id=497741325]
+layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="TitleLabel" type="Label" parent="CanvasLayer/HUDPanel/Margin/Rows"]
+[node name="TitleLabel" type="Label" parent="CanvasLayer/HUDPanel/Margin/Rows" unique_id=1323126969]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
 theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
 text = "PORTAL 02 // ASCENT"
 
-[node name="JumpsLabel" type="Label" parent="CanvasLayer/HUDPanel/Margin/Rows"]
+[node name="JumpsLabel" type="Label" parent="CanvasLayer/HUDPanel/Margin/Rows" unique_id=432751567]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.9, 1)
 theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 26
-theme_override_colors/font_color = Color(0.95, 0.95, 0.9, 1)
 text = "JUMPS 00/30"
 
-[node name="HullRow" type="HBoxContainer" parent="CanvasLayer/HUDPanel/Margin/Rows"]
+[node name="HullRow" type="HBoxContainer" parent="CanvasLayer/HUDPanel/Margin/Rows" unique_id=273347527]
+layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HullLabel" type="Label" parent="CanvasLayer/HUDPanel/Margin/Rows/HullRow"]
+[node name="HullLabel" type="Label" parent="CanvasLayer/HUDPanel/Margin/Rows/HullRow" unique_id=1053342746]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.9, 1)
 theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.95, 0.95, 0.9, 1)
 text = "HULL"
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUDPanel/Margin/Rows/HullRow"]
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/HUDPanel/Margin/Rows/HullRow" unique_id=40800834]
 custom_minimum_size = Vector2(150, 18)
+layout_mode = 2
 size_flags_horizontal = 3
-max_value = 100.0
-value = 100.0
-show_percentage = false
 theme_override_styles/background = SubResource("StyleBoxFlat_hp_bg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hp_fill")
+value = 100.0
+show_percentage = false
 
-[node name="HintLabel" type="Label" parent="CanvasLayer"]
+[node name="HintLabel" type="Label" parent="CanvasLayer" unique_id=908625111]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -120,15 +125,16 @@ offset_right = 300.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3")
-theme_override_font_sizes/font_size = 16
 theme_override_colors/font_color = Color(0.1, 0.2, 0.3, 0.8)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.9)
 theme_override_constants/outline_size = 4
-horizontal_alignment = 1
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "A / D MOVE - SPACE / UP JUMP - PLATFORMS CRUMBLE"
+horizontal_alignment = 1
 
-[node name="MessageLabel" type="Label" parent="CanvasLayer"]
+[node name="MessageLabel" type="Label" parent="CanvasLayer" unique_id=1226190118]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -140,20 +146,18 @@ offset_right = 300.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3")
-theme_override_font_sizes/font_size = 34
 theme_override_colors/font_color = Color(1, 0.95, 0.9, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 34
+text = "You made it!"
 horizontal_alignment = 1
 vertical_alignment = 1
-visible = false
-text = "You made it!"
 
-[node name="BranchTimer" type="Timer" parent="."]
+[node name="BranchTimer" type="Timer" parent="." unique_id=807125931]
 wait_time = 2.6
-autostart = false
 
-[node name="WinSound" type="AudioStreamPlayer" parent="."]
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=990922902]
 stream = ExtResource("4")
 volume_db = -6.0
