@@ -172,19 +172,27 @@ collision_animatable = true
 format = 2
 
 [node name="StaticBody2D" parent="." unique_id=1740213851 instance=ExtResource("2_fx4mt")]
-position = Vector2(209, 42)
+position = Vector2(256, 65)
 collectable_type = "red tree 2"
 
 [node name="StaticBody2D2" parent="." unique_id=689856582 instance=ExtResource("2_fx4mt")]
-position = Vector2(349, -117)
+position = Vector2(372, 2)
 collectable_type = "red tree 1"
 
 [node name="StaticBody2D3" parent="." unique_id=1761183364 instance=ExtResource("2_fx4mt")]
-position = Vector2(349, -117)
+position = Vector2(385, -241)
 collectable_type = "red tree 1"
 
 [node name="StaticBody2D4" parent="." unique_id=2142974106 instance=ExtResource("2_fx4mt")]
 position = Vector2(513, 356)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D15" parent="." unique_id=1844539308 instance=ExtResource("2_fx4mt")]
+position = Vector2(794, 403)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D16" parent="." unique_id=835961912 instance=ExtResource("2_fx4mt")]
+position = Vector2(764, 236)
 collectable_type = "red tree 1"
 
 [node name="StaticBody2D7" parent="." unique_id=818901867 instance=ExtResource("2_fx4mt")]
@@ -193,6 +201,14 @@ collectable_type = "red tree 1"
 
 [node name="StaticBody2D9" parent="." unique_id=159218844 instance=ExtResource("2_fx4mt")]
 position = Vector2(259, 537)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D17" parent="." unique_id=1439033242 instance=ExtResource("2_fx4mt")]
+position = Vector2(35, 522)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D18" parent="." unique_id=1038281652 instance=ExtResource("2_fx4mt")]
+position = Vector2(43, 686)
 collectable_type = "red tree 1"
 
 [node name="StaticBody2D10" parent="." unique_id=1999902398 instance=ExtResource("2_fx4mt")]
@@ -212,7 +228,11 @@ position = Vector2(613, 122)
 collectable_type = "red tree 1"
 
 [node name="StaticBody2D12" parent="." unique_id=1295973201 instance=ExtResource("2_fx4mt")]
-position = Vector2(582, 684)
+position = Vector2(810, 805)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D19" parent="." unique_id=1438130834 instance=ExtResource("2_fx4mt")]
+position = Vector2(565, 769)
 collectable_type = "red tree 1"
 
 [node name="StaticBody2D5" parent="." unique_id=13320895 instance=ExtResource("2_fx4mt")]
