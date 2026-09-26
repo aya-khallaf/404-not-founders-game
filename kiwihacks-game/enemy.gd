@@ -1,11 +1,15 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+@export var animation := ""
 
 var touching_player = false
 var cooldown = false
 var health = 100
 var max_health = 100
+
+func _ready() -> void:
+	$AnimatedSprite2D.animation = animation
 
 func _physics_process(delta: float) -> void:
 	$ProgressBar.value=health

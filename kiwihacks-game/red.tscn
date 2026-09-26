@@ -1,10 +1,12 @@
-[gd_scene format=3 uid="uid://doa8rmyhcf6n1"]
+[gd_scene format=3 uid="uid://bvv1puqn84rbc"]
 
 [ext_resource type="Script" uid="uid://bspoqv6egibpe" path="res://red.gd" id="1_2lpwq"]
 [ext_resource type="Texture2D" uid="uid://dur20qent2853" path="res://MasterSimple.png" id="1_xn7oe"]
 [ext_resource type="PackedScene" uid="uid://qipmclv2ymqu" path="res://collectable.tscn" id="2_fx4mt"]
 [ext_resource type="PackedScene" uid="uid://bb0d7o8c5vogn" path="res://player.tscn" id="3_icr0l"]
-[ext_resource type="PackedScene" uid="uid://bmk7w0a5yr3cw" path="res://plant.tscn" id="5_q6epr"]
+[ext_resource type="PackedScene" path="res://plant.tscn" id="5_q6epr"]
+[ext_resource type="Texture2D" uid="uid://ba3j52u3jq3tj" path="res://spritepaint 32.png" id="6_3t7kr"]
+[ext_resource type="PackedScene" uid="uid://b6cxgt6g8btar" path="res://enemy.tscn" id="7_i7aae"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
 texture = ExtResource("1_xn7oe")
@@ -645,3 +647,76 @@ collectable_type = "plant 1"
 [node name="StaticBody2D21" parent="." unique_id=477671342 instance=ExtResource("5_q6epr")]
 position = Vector2(137, 302)
 collectable_type = "plant 2"
+
+[node name="Spritepaint32" type="Sprite2D" parent="." unique_id=2086156747]
+position = Vector2(176, -236)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_3t7kr")
+
+[node name="Enemy" parent="." unique_id=8100484 instance=ExtResource("7_i7aae")]
+position = Vector2(399, -173)
+animation = "LavaBlob"
+
+[node name="Enemy2" parent="." unique_id=296407383 instance=ExtResource("7_i7aae")]
+position = Vector2(325, -125)
+animation = "LavaBlob"
+
+[node name="Enemy3" parent="." unique_id=1845964387 instance=ExtResource("7_i7aae")]
+position = Vector2(226, -44)
+animation = "LavaBlob"
+
+[node name="Enemy4" parent="." unique_id=456351348 instance=ExtResource("7_i7aae")]
+position = Vector2(534, -122)
+animation = "LavaBlob"
+
+[node name="Enemy5" parent="." unique_id=1764735217 instance=ExtResource("7_i7aae")]
+position = Vector2(120, 239)
+animation = "LavaBlob"
+
+[node name="Enemy6" parent="." unique_id=470036574 instance=ExtResource("7_i7aae")]
+position = Vector2(345, 292)
+animation = "LavaBlob"
+
+[node name="Enemy7" parent="." unique_id=227280189 instance=ExtResource("7_i7aae")]
+position = Vector2(569, 240)
+animation = "LavaBlob"
+
+[node name="Enemy8" parent="." unique_id=2005037076 instance=ExtResource("7_i7aae")]
+position = Vector2(738, 441)
+animation = "LavaBlob"
+
+[node name="Enemy9" parent="." unique_id=577712932 instance=ExtResource("7_i7aae")]
+position = Vector2(654, 714)
+animation = "LavaBlob"
+
+[node name="Enemy10" parent="." unique_id=1777887972 instance=ExtResource("7_i7aae")]
+position = Vector2(149, 683)
+animation = "LavaBlob"
+
+[node name="Enemy11" parent="." unique_id=931702301 instance=ExtResource("7_i7aae")]
+position = Vector2(658, 23)
+animation = "fire sprite"
+
+[node name="Enemy12" parent="." unique_id=1110219451 instance=ExtResource("7_i7aae")]
+position = Vector2(66, 780)
+animation = "fire sprite"
+
+[node name="Enemy13" parent="." unique_id=1712644772 instance=ExtResource("7_i7aae")]
+position = Vector2(255, 745)
+animation = "fire sprite"
+
+[node name="Enemy14" parent="." unique_id=1861155096 instance=ExtResource("7_i7aae")]
+position = Vector2(690, 215)
+animation = "fire sprite"
+
+[node name="Enemy15" parent="." unique_id=2129262132 instance=ExtResource("7_i7aae")]
+position = Vector2(609, 389)
+animation = "fire sprite"
+
+[node name="Enemy16" parent="." unique_id=807598815 instance=ExtResource("7_i7aae")]
+position = Vector2(675, 551)
+animation = "fire sprite"
+
+[node name="Enemy17" parent="." unique_id=1707495926 instance=ExtResource("7_i7aae")]
+position = Vector2(136, 515)
+animation = "fire sprite"

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cpwnwqu1ety86" path="res://enemy.gd" id="1_7k104"]
 [ext_resource type="Texture2D" uid="uid://bfk7yv466vvjw" path="res://spritepaint 7.png" id="2_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://qhw4lnf7vthg" path="res://spritepaint 37.png" id="3_qi2p4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qi2p4"]
 animations = [{
@@ -11,6 +12,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"LavaBlob",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qi2p4")
+}],
+"loop": true,
+"name": &"fire sprite",
 "speed": 5.0
 }]
 
@@ -28,7 +37,7 @@ script = ExtResource("1_7k104")
 position = Vector2(25, 9)
 scale = Vector2(3.703125, 3.765625)
 sprite_frames = SubResource("SpriteFrames_qi2p4")
-animation = &"LavaBlob"
+animation = &"fire sprite"
 
 [node name="hitbox" type="Area2D" parent="." unique_id=744508763]
 
