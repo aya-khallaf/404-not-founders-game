@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://doa8rmyhcf6n1"]
 
 [ext_resource type="Texture2D" uid="uid://dur20qent2853" path="res://MasterSimple.png" id="1_xn7oe"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://qipmclv2ymqu" path="res://collectable.tscn" id="2_fx4mt"]
-=======
->>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
 texture = ExtResource("1_xn7oe")
@@ -117,10 +114,6 @@ texture = ExtResource("1_xn7oe")
 5:7/0 = 0
 6:7/0 = 0
 0:8/0 = 0
-<<<<<<< Updated upstream
-=======
-1:8/0 = 0
->>>>>>> Stashed changes
 2:8/0 = 0
 3:8/0 = 0
 4:8/0 = 0
@@ -140,10 +133,7 @@ texture = ExtResource("1_xn7oe")
 4:10/0 = 0
 5:10/0 = 0
 6:10/0 = 0
-<<<<<<< Updated upstream
 1:8/0 = 0
-=======
->>>>>>> Stashed changes
 
 [sub_resource type="TileSet" id="TileSet_wl7ka"]
 sources/1 = SubResource("TileSetAtlasSource_yg2w3")
@@ -151,7 +141,6 @@ sources/1 = SubResource("TileSetAtlasSource_yg2w3")
 [node name="Basic scene" type="Node2D" unique_id=608034055]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=580567407]
-<<<<<<< Updated upstream
 modulate = Color(0.9948329, 0.9948329, 0.9948329, 1)
 scale = Vector2(2.5, 2.5)
 tile_set = SubResource("TileSet_wl7ka")
@@ -217,8 +206,3 @@ collectable_type = "red tree 1"
 [node name="StaticBody2D8" parent="." unique_id=164941560 instance=ExtResource("2_fx4mt")]
 position = Vector2(124, 134)
 collectable_type = "red tree 1"
-=======
-tile_set = SubResource("TileSet_wl7ka")
-collision_animatable = true
-format = 2
->>>>>>> Stashed changes
