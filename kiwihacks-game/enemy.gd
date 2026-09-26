@@ -5,10 +5,11 @@ const SPEED = 300.0
 
 var touching_player = false
 var cooldown = false
-var health = 100
-var max_health = 100
+var health = 30
+var max_health = 30
 
 func _ready() -> void:
+	add_to_group("foe")
 	$AnimatedSprite2D.animation = animation
 
 func _physics_process(delta: float) -> void:
