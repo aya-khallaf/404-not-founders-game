@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ba3j52u3jq3tj" path="res://spritepaint 32.png" id="5_ub3ay"]
 [ext_resource type="Texture2D" uid="uid://bs1n3s6e6vms2" path="res://spritepaint 34.png" id="7_ir822"]
 [ext_resource type="Texture2D" uid="uid://ddvvh12wjyk8w" path="res://spritepaint 35.png" id="8_6rxwl"]
+[ext_resource type="AudioStream" uid="uid://bpp1mf0u4q8sw" path="res://start.mp3" id="9_6rxwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d0ag6"]
 texture = ExtResource("1_l20sj")
@@ -205,3 +206,7 @@ shape = SubResource("RectangleShape2D_iixe1")
 [node name="Area2D" type="Area2D" parent="." unique_id=1636707054]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=228645155]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1030436949]
+stream = ExtResource("9_6rxwl")
+autoplay = true
