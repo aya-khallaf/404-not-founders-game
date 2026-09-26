@@ -3,7 +3,11 @@ extends Node2D
 ## branches, win after `target_jumps` bounces.
 
 @export var target_jumps := 30
-@export var win_scene_path := "res://red.tscn"
+@export var win_scene_path := "res://hub.tscn"
+@export var done_flag := "blue_done"
+@export var art_set := 0
+@export var sky_color := Color(0.55, 0.8, 0.92, 1)
+@export var ember_decor := false
 @export var level_half_width := 320.0
 @export var platform_spacing_min := 100.0
 @export var platform_spacing_max := 150.0
@@ -20,6 +24,8 @@ extends Node2D
 const PlatformScene := preload("res://platform.tscn")
 const BranchScene := preload("res://branch.tscn")
 const TrunkTexture := preload("res://spritepaint 20.png")
+const EmberTreeA := preload("res://spritepaint 13.png")
+const EmberTreeB := preload("res://spritepaint 14.png")
 const TRUNK_SCALE := 3.0
 
 var _jumps := 0
@@ -39,6 +45,7 @@ var _game_over := false
 
 func _ready() -> void:
 	randomize()
+	($Sky/SkyRect as ColorRect).color = sky_color
 	_build_trunk()
 	_build_platforms()
 	_player.jumped.connect(_on_player_jumped)
@@ -104,6 +111,7 @@ func _game_over_by_fall() -> void:
 
 func _win() -> void:
 	_game_over = true
+	Global.set(done_flag, true)
 	_branch_timer.stop()
 	_message_label.text = "ASCENT COMPLETE - %d JUMPS" % [_jumps]
 	_message_label.visible = true
@@ -133,6 +141,17 @@ func _build_trunk() -> void:
 		tile.position = Vector2(0, y - tile_h * 0.5)
 		_knots.add_child(tile)
 		y -= tile_h
+	if ember_decor:
+		var canopy_count := int(total_height / 900.0) + 1
+		for i in canopy_count:
+			var canopy := Sprite2D.new()
+			canopy.texture = EmberTreeA if i % 2 == 0 else EmberTreeB
+			var side := -1.0 if i % 2 == 0 else 1.0
+			canopy.position = Vector2(side * randf_range(170.0, 250.0), 400.0 - float(i) * 900.0 - randf_range(0.0, 200.0))
+			canopy.scale = Vector2(2.0, 2.0)
+			canopy.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			canopy.z_index = -40
+			_knots.add_child(canopy)
 
 func _build_platforms() -> void:
 	# Row-based like classic doodle: one platform per row, each row one
@@ -161,6 +180,7 @@ func _make_platform(pos: Vector2, permanent := false) -> StaticBody2D:
 	var platform := PlatformScene.instantiate() as DoodlePlatform
 	platform.position = pos
 	platform.permanent = permanent
+	platform.art_set = art_set
 	return platform
 
 func _on_branch_timer_timeout() -> void:
@@ -169,6 +189,7 @@ func _on_branch_timer_timeout() -> void:
 	var branch := BranchScene.instantiate() as FallingBranch
 	branch.fall_speed = branch_fall_speed
 	branch.damage = branch_damage
+	branch.art_set = art_set
 	var x := randf_range(-level_half_width, level_half_width)
 	branch.position = Vector2(x, _camera.position.y - 550.0)
 	_branches.add_child(branch)

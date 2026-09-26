@@ -9,13 +9,20 @@ class_name DoodlePlatform
 
 # Artist sprites as-is, uniform scale, no stretch. Hitbox = exact drawn
 # pixels: measured alpha bboxes on the 92x92 spritepaint canvases.
+# Set 0 = blue twigs (21-23), set 1 = red twigs (39).
 const ART_SCALE := 4.0
 const CANVAS_CENTER := Vector2(46, 46)
-const VARIANTS := [
-	{"tex": preload("res://spritepaint 21.png"), "min": Vector2(56, 44), "size": Vector2(19, 10)},
-	{"tex": preload("res://spritepaint 22.png"), "min": Vector2(49, 45), "size": Vector2(22, 8)},
-	{"tex": preload("res://spritepaint 23.png"), "min": Vector2(57, 46), "size": Vector2(19, 12)},
-]
+const SETS := {
+	0: [
+		{"tex": preload("res://spritepaint 21.png"), "min": Vector2(56, 44), "size": Vector2(19, 10)},
+		{"tex": preload("res://spritepaint 22.png"), "min": Vector2(49, 45), "size": Vector2(22, 8)},
+		{"tex": preload("res://spritepaint 23.png"), "min": Vector2(57, 46), "size": Vector2(19, 12)},
+	],
+	1: [
+		{"tex": preload("res://spritepaint 39.png"), "min": Vector2(28, 31), "size": Vector2(36, 27)},
+	],
+}
+@export var art_set := 0
 
 var _triggered := false
 @onready var _art: Sprite2D = $Art
@@ -23,7 +30,8 @@ var _triggered := false
 
 func _ready() -> void:
 	add_to_group("platform")
-	var variant: Dictionary = VARIANTS[randi() % VARIANTS.size()]
+	var set: Array = SETS.get(art_set, SETS[0])
+	var variant: Dictionary = set[randi() % set.size()]
 	var px_size: Vector2 = variant["size"] * ART_SCALE
 	var center: Vector2 = variant["min"] + variant["size"] * 0.5
 	_art.texture = variant["tex"]

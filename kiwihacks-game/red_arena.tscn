@@ -1,0 +1,81 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://red_arena.gd" id="1"]
+[ext_resource type="PackedScene" path="res://red.tscn" id="2"]
+[ext_resource type="FontFile" path="res://VCR_OSD_MONO_1.001.ttf" id="3"]
+
+[node name="RedArena" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Red" parent="." instance=ExtResource("2")]
+
+[node name="Floaters" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 400.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 0.9, 0.85, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "SURVIVE 60"
+
+[node name="HpLabel" type="Label" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 54.0
+offset_right = 500.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(1, 0.9, 0.85, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "HULL [X][X][X]"
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 12.0
+offset_right = 400.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 0.45, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+horizontal_alignment = 1
+text = "PORTAL 01 // SURVIVE - DODGE THE BLOBS"
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 34
+theme_override_colors/font_color = Color(1, 0.95, 0.9, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+visible = false
+text = "..."
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = false
