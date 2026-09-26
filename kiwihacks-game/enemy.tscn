@@ -21,6 +21,7 @@ radius = 47.010635
 radius = 30.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=8100484]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_7k104")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=205675081]
@@ -38,5 +39,18 @@ debug_color = Color(1, 0, 0, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=318633703]
 shape = SubResource("CircleShape2D_iifgy")
 
+[node name="Timer" type="Timer" parent="." unique_id=697137155]
+wait_time = 0.1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1291119305]
+offset_left = -30.0
+offset_top = -74.0
+offset_right = 30.0
+offset_bottom = -65.0
+show_percentage = false
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

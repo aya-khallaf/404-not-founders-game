@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c01kbe28kxfve" path="res://spritepaint 2 (2).png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://8urpwdtw38kf" path="res://spritepaint 3 (2).png" id="5_dw050"]
 [ext_resource type="Texture2D" uid="uid://bdmdsfka377wk" path="res://spritepaint 2 (1).png" id="6_b26j0"]
+[ext_resource type="PackedScene" uid="uid://oetcc6vwrbcw" path="res://sword.tscn" id="7_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://cs3lcbms0sow3" path="res://spritepaint 3 (1).png" id="7_n7ghd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ghijl"]
@@ -57,5 +58,15 @@ animation = &"spaceship"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1834886280]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_i3pqv")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1990716673]
+offset_left = -30.0
+offset_top = -57.0
+offset_right = 30.0
+offset_bottom = -48.0
+show_percentage = false
+
+[node name="Sword" parent="." unique_id=124301926 instance=ExtResource("7_1jxqw")]
+position = Vector2(0, -12)
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

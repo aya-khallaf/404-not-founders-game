@@ -152,6 +152,7 @@ layer_0/tile_data = PackedInt32Array(196603, 65537, 5, 196604, 65537, 5, 196605,
 
 [node name="CharacterBody2D" parent="." unique_id=1069507652 instance=ExtResource("2_yg2w3")]
 position = Vector2(171, -144)
+in_spaceship = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1162918565]
 zoom = Vector2(2.5, 2.5)
@@ -169,27 +170,3 @@ collectable_type = "rock"
 
 [node name="Enemy" parent="." unique_id=8100484 instance=ExtResource("4_lx1al")]
 position = Vector2(29, -101)
-
-[node name="Enemy2" parent="." unique_id=1870165641 instance=ExtResource("4_lx1al")]
-position = Vector2(30, -305)
-
-[node name="Enemy3" parent="." unique_id=711342634 instance=ExtResource("4_lx1al")]
-position = Vector2(325, -320)
-
-[node name="Enemy4" parent="." unique_id=1275215426 instance=ExtResource("4_lx1al")]
-position = Vector2(480, -209)
-
-[node name="Enemy5" parent="." unique_id=2085727797 instance=ExtResource("4_lx1al")]
-position = Vector2(172, -389)
-
-[node name="Enemy6" parent="." unique_id=1601426648 instance=ExtResource("4_lx1al")]
-position = Vector2(430, -385)
-
-[node name="Enemy7" parent="." unique_id=958414494 instance=ExtResource("4_lx1al")]
-position = Vector2(283, -411)
-
-[node name="Enemy8" parent="." unique_id=2043990523 instance=ExtResource("4_lx1al")]
-position = Vector2(596, -401)
-
-[node name="Timer" type="Timer" parent="." unique_id=222353821]
-wait_time = 0.1
