@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dur20qent2853" path="res://MasterSimple.png" id="1_xn7oe"]
 [ext_resource type="PackedScene" uid="uid://qipmclv2ymqu" path="res://collectable.tscn" id="2_fx4mt"]
 [ext_resource type="PackedScene" uid="uid://bb0d7o8c5vogn" path="res://player.tscn" id="3_icr0l"]
+[ext_resource type="PackedScene" uid="uid://bmk7w0a5yr3cw" path="res://plant.tscn" id="5_q6epr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
 texture = ExtResource("1_xn7oe")
@@ -165,7 +166,7 @@ size = Vector2(273.8789, 36)
 size = Vector2(58.939453, 475)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5efg"]
-size = Vector2(37.469727, 359.5)
+size = Vector2(19.734863, 435.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s78h3"]
 size = Vector2(185.86743, 54.875)
@@ -256,6 +257,38 @@ collectable_type = "red tree 1"
 
 [node name="StaticBody2D3" parent="." unique_id=1761183364 instance=ExtResource("2_fx4mt")]
 position = Vector2(385, -241)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D22" parent="." unique_id=793599828 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D23" parent="." unique_id=1366568748 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D24" parent="." unique_id=640463130 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D25" parent="." unique_id=1894208757 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D26" parent="." unique_id=1803298561 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D27" parent="." unique_id=59032422 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D28" parent="." unique_id=1024467427 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
+collectable_type = "red tree 1"
+
+[node name="StaticBody2D29" parent="." unique_id=733626825 instance=ExtResource("2_fx4mt")]
+position = Vector2(-3, 200)
 collectable_type = "red tree 1"
 
 [node name="StaticBody2D4" parent="." unique_id=2142974106 instance=ExtResource("2_fx4mt")]
@@ -370,7 +403,7 @@ position = Vector2(-615.6201, 861.46094)
 shape = SubResource("RectangleShape2D_h22fc")
 
 [node name="CollisionShape2D38" type="CollisionShape2D" parent="StaticBody2D14" unique_id=41115433]
-position = Vector2(-61, 156)
+position = Vector2(-52.13257, 117.875)
 shape = SubResource("RectangleShape2D_u5efg")
 
 [node name="CollisionShape2D37" type="CollisionShape2D" parent="StaticBody2D14" unique_id=1821522994]
@@ -446,7 +479,7 @@ position = Vector2(-76.08984, 20.960938)
 shape = SubResource("RectangleShape2D_h22fc")
 
 [node name="CollisionShape2D32" type="CollisionShape2D" parent="StaticBody2D14" unique_id=1862610412]
-position = Vector2(-21.081543, 81.55469)
+position = Vector2(-134, 93)
 shape = SubResource("RectangleShape2D_h22fc")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D14" unique_id=1961553408]
@@ -500,3 +533,115 @@ shape = SubResource("RectangleShape2D_3t7kr")
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D14" unique_id=1949158449]
 position = Vector2(-280.21094, 1162.9609)
 shape = SubResource("RectangleShape2D_h22fc")
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="StaticBody2D14" unique_id=109838895]
+position = Vector2(-280.21094, 1162.9609)
+shape = SubResource("RectangleShape2D_h22fc")
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="StaticBody2D14" unique_id=1342733287]
+position = Vector2(-280.21094, 1162.9609)
+shape = SubResource("RectangleShape2D_h22fc")
+
+[node name="StaticBody2D20" parent="." unique_id=313057213 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D30" parent="." unique_id=1258329229 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D31" parent="." unique_id=1177502399 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D32" parent="." unique_id=362630824 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D33" parent="." unique_id=1641040674 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D34" parent="." unique_id=847867800 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D35" parent="." unique_id=2107692974 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D36" parent="." unique_id=2097660553 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D37" parent="." unique_id=1143032033 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D38" parent="." unique_id=1449288526 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D39" parent="." unique_id=577786464 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D40" parent="." unique_id=1841272564 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D41" parent="." unique_id=1667356744 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D42" parent="." unique_id=1884328632 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D43" parent="." unique_id=1956591403 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D44" parent="." unique_id=550676178 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D45" parent="." unique_id=1006868738 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D46" parent="." unique_id=298693199 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D47" parent="." unique_id=1925749527 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D48" parent="." unique_id=312949075 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D49" parent="." unique_id=1529825900 instance=ExtResource("5_q6epr")]
+position = Vector2(130, 420)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D50" parent="." unique_id=1472962930 instance=ExtResource("5_q6epr")]
+position = Vector2(519, 554)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D51" parent="." unique_id=1839723912 instance=ExtResource("5_q6epr")]
+position = Vector2(124, 790)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D52" parent="." unique_id=1663609572 instance=ExtResource("5_q6epr")]
+position = Vector2(812, 636)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D53" parent="." unique_id=1379467010 instance=ExtResource("5_q6epr")]
+position = Vector2(806, 546)
+collectable_type = "plant 1"
+
+[node name="StaticBody2D21" parent="." unique_id=477671342 instance=ExtResource("5_q6epr")]
+position = Vector2(137, 302)
+collectable_type = "plant 2"

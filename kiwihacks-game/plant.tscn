@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bmk7w0a5yr3cw"]
+
+[ext_resource type="Script" uid="uid://g2w3gyys7ai7" path="res://collectable.gd" id="1_4oa58"]
+[ext_resource type="Texture2D" uid="uid://cirdxgsi0vng5" path="res://spritepaint 40.png" id="2_qljma"]
+[ext_resource type="Texture2D" uid="uid://b0tmvdftx51o8" path="res://spritepaint 39.png" id="3_4oa58"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uc8tw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qljma")
+}],
+"loop": 1,
+"name": &"plant 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4oa58")
+}],
+"loop": 1,
+"name": &"plant 2",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4v1pg"]
+radius = 24.5153
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1740213851]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_4oa58")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1961988357]
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_uc8tw")
+animation = &"plant 2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=496979837]
+position = Vector2(-4, 5)
+shape = SubResource("CircleShape2D_4v1pg")
