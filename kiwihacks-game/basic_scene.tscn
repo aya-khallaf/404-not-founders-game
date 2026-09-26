@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dur20qent2853" path="res://MasterSimple.png" id="1_37g4p"]
 [ext_resource type="PackedScene" uid="uid://bb0d7o8c5vogn" path="res://player.tscn" id="2_yg2w3"]
-[ext_resource type="PackedScene" uid="uid://qipmclv2ymqu" path="res://collectable.tscn" id="3_wl7ka"]
+[ext_resource type="AudioStream" uid="uid://cfrta8dcw6qbb" path="res://Battle_music.mp3" id="4_lx1al"]
 [ext_resource type="Script" uid="uid://boq3rb38o53jb" path="res://space_room.gd" id="5_room"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
@@ -172,13 +172,9 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="StaticBody2D" parent="." unique_id=1740213851 instance=ExtResource("3_wl7ka")]
-position = Vector2(126, -217)
-collectable_type = "red tree 1"
-
-[node name="StaticBody2D2" parent="." unique_id=1034770497 instance=ExtResource("3_wl7ka")]
-position = Vector2(287, -138)
-collectable_type = "rock"
-
 [node name="Timer" type="Timer" parent="." unique_id=222353821]
 wait_time = 0.1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1343206501]
+stream = ExtResource("4_lx1al")
+autoplay = true

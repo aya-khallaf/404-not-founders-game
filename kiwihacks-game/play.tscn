@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://c0c8tr718qrwt"]
+[gd_scene format=3 uid="uid://bxwx7cboxxahe"]
 
 [ext_resource type="Script" uid="uid://uyi3sraf3xox" path="res://play.gd" id="1"]
 [ext_resource type="PackedScene" path="res://doodle_player.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://jdkvbxxojkrn" path="res://spritepaint 57.png" id="2_ca36m"]
 [ext_resource type="FontFile" uid="uid://ippfmw4qpmsj" path="res://VCR_OSD_MONO_1.001.ttf" id="3"]
 [ext_resource type="AudioStream" uid="uid://botqqqo1c8qpv" path="res://win.mp3" id="4"]
+[ext_resource type="AudioStream" uid="uid://cfrta8dcw6qbb" path="res://Battle_music.mp3" id="6_j5m8q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
 bg_color = Color(0, 0, 0, 0.55)
@@ -159,3 +160,7 @@ wait_time = 2.6
 [node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=990922902]
 stream = ExtResource("4")
 volume_db = -6.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=13580290]
+stream = ExtResource("6_j5m8q")
+autoplay = true

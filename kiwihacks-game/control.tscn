@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://b2wdboj7v520w"]
+[gd_scene format=3 uid="uid://t57hp0kprjor"]
 
 [ext_resource type="FontFile" uid="uid://ippfmw4qpmsj" path="res://VCR_OSD_MONO_1.001.ttf" id="1_0fbet"]
 [ext_resource type="Script" uid="uid://bskif5hoa8pn2" path="res://control.gd" id="1_62e2m"]
 [ext_resource type="AudioStream" uid="uid://dc73h1imx7p6i" path="res://typing-sound-effect-no-copyright_KLzBGZ07.mp3" id="3_qtu10"]
+[ext_resource type="AudioStream" uid="uid://cdew1q2n4m8h7" path="res://nuclear-alarm-sound-effect-jqgy42ydxdu_wpRnnQJQ.mp3" id="4_ee4bf"]
 
 [node name="Control" type="Control" unique_id=1745831077]
 layout_mode = 3
@@ -47,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -489.0
-offset_top = -240.0
-offset_right = 497.0
-offset_bottom = 318.0
+offset_left = -502.0
+offset_top = -196.0
+offset_right = 542.0
+offset_bottom = 362.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_0fbet")
@@ -75,6 +76,10 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=370826943]
 stream = ExtResource("3_qtu10")
 volume_db = 13.448
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=526106157]
+stream = ExtResource("4_ee4bf")
 autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

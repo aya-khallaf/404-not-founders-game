@@ -7,6 +7,11 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_63kyv"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"plant 1",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_te2od")
@@ -42,7 +47,7 @@ script = ExtResource("1_4v1pg")
 position = Vector2(15, -22)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_63kyv")
-animation = &"red tree 1"
+animation = &"plant 1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=496979837]
 position = Vector2(-4, 5)

@@ -1,15 +1,16 @@
-[gd_scene format=3 uid="uid://bvv1puqn84rbc"]
+[gd_scene format=3 uid="uid://doa8rmyhcf6n1"]
 
 [ext_resource type="Script" uid="uid://bspoqv6egibpe" path="res://red.gd" id="1_2lpwq"]
 [ext_resource type="Texture2D" uid="uid://dur20qent2853" path="res://MasterSimple.png" id="1_xn7oe"]
 [ext_resource type="PackedScene" uid="uid://qipmclv2ymqu" path="res://collectable.tscn" id="2_fx4mt"]
 [ext_resource type="PackedScene" uid="uid://bb0d7o8c5vogn" path="res://player.tscn" id="3_icr0l"]
-[ext_resource type="PackedScene" path="res://plant.tscn" id="5_q6epr"]
+[ext_resource type="PackedScene" uid="uid://bmk7w0a5yr3cw" path="res://plant.tscn" id="5_q6epr"]
 [ext_resource type="Texture2D" uid="uid://ba3j52u3jq3tj" path="res://spritepaint 32.png" id="6_3t7kr"]
 [ext_resource type="PackedScene" uid="uid://b6cxgt6g8btar" path="res://enemy.tscn" id="7_i7aae"]
 [ext_resource type="Texture2D" uid="uid://cai166ljqs5hi" path="res://spritepaint 50.png" id="8_073wb"]
 [ext_resource type="Texture2D" uid="uid://dqekn8wywl36l" path="res://spritepaint 54.png" id="9_5hdr3"]
 [ext_resource type="Texture2D" uid="uid://6jwb5o2gqo5n" path="res://spritepaint 55.png" id="10_hlsyn"]
+[ext_resource type="AudioStream" uid="uid://cfrta8dcw6qbb" path="res://Battle_music.mp3" id="11_hlsyn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg2w3"]
 texture = ExtResource("1_xn7oe")
@@ -236,7 +237,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_5hdr3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"locked",
 "speed": 5.0
 }, {
@@ -244,7 +245,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_hlsyn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"open",
 "speed": 5.0
 }]
@@ -764,5 +765,9 @@ animation = &"locked"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=939044037]
 position = Vector2(351, 205)
 shape = SubResource("CircleShape2D_5hdr3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1892473129]
+stream = ExtResource("11_hlsyn")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
